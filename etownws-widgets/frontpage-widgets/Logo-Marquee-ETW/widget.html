@@ -38,6 +38,8 @@
     }
 
     [data-widget-id="{{_.id}}"] .internal{
+        display: flex;
+        align-items: center;
         margin:  0px {{spaceBetweenLogos}}px;
         object-fit:contain;
         aspect-ratio: 1 / 1;
@@ -61,7 +63,7 @@
 </style>
 
 <script defer="defer">
-    window.addEventListener("load", ()=>{
+    window.addEventListener("DOMContentLoaded", ()=>{
         const marquee = document.querySelector('[data-widget-id="{{_.id}}"] .marquee')
             marquee.addEventListener("animationend", (event) => {
             if({{reversed}}) marquee.append(marquee.firstChild)
