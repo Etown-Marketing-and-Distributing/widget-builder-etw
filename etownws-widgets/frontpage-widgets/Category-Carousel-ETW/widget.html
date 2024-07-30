@@ -8,7 +8,8 @@
         let productCount =  parseInt({{products_per_row}});
         let scrollCount =  parseInt({{product_scroll}});
         let productsToGrab = pageCount * productRows * productCount;
-        const response = await fetch(page_url+`?limit=${productsToGrab}`);
+        let sortType = container.dataset.pageSort;
+        const response = await fetch(page_url+`?limit=${productsToGrab}&sort=${sortType}`);
         return await response.text().then(response => {
             doc = parser.parseFromString(response, "text/html");
             let productCards = doc.querySelectorAll("li.product");
@@ -26,7 +27,8 @@
                     {
                         "breakpoint": 800,
                         "settings": {
-                            "slidesToShow":${productCount/3}
+                            "slidesToShow":${productCount/3},
+                            "arrows":true
                         }
                     }
                 ]
@@ -84,7 +86,12 @@
     }
     if(!setActiveTab)
     var setActiveTab = function setActiveTab(event) {
-        let tabs = event.currentTarget.parentNode.parentNode.parentNode.querySelectorAll(`.productCarouselTab`);
+        let widgetElement = event.currentTarget.closest("[data-widget-id]");
+        let tabs = widgetElement.querySelectorAll(`.productCarouselTab`);
+        let title = widgetElement.querySelector(".productCarouselTitle");
+        let subtitle = widgetElement.querySelector(".productCarouselSubheader");
+        title.textContent = event.currentTarget.dataset.tabTitle;
+        subtitle.textContent = event.currentTarget.dataset.tabSubtitle;
         tabs.forEach(tab => {
             try {
                 if(tab.getAttribute("data-tab-name") === event.currentTarget.getAttribute("data-tab-name")) {
@@ -118,14 +125,14 @@
         <div class="container">
             <div class="productCarouselNavbar">
                 {{#each tabs}}
-                    <div class="carouselTabButton" data-tab-name="{{tab_label}}">{{tab_label}}</div>
+                    <div class="carouselTabButton" data-tab-name="{{tab_label}}" data-tab-title="{{tab_title_text}}" data-tab-subtitle="{{tab_subtitle_text}}">{{tab_label}}</div>
                 {{/each}}
             </div>
         </div>
         <div class="container">
             <div class="productCarouselTabs">
                 {{#each tabs}}
-                <ul class="productCarouselTab hidden" data-tab-name="{{tab_label}}" data-page-url="{{page_url}}">
+                <ul class="productCarouselTab hidden" data-tab-name="{{tab_label}}" data-page-url="{{page_url}}" data-page-sort="{{sort_by}}">
 
                 </ul>
                 {{/each}}
@@ -178,7 +185,7 @@
         }
 
         .productCarouselTab .slick-prev {
-            left: -30px !important;
+            left: 0px !important;
 
             &:before {
                 content:"";
@@ -186,7 +193,7 @@
         }
 
         .productCarouselTab .slick-next {
-            right: -30px !important;
+            right: 0 !important;
 
             &:before {
                 content:"";
@@ -204,8 +211,8 @@
     .productCarouselNavbar {
         display:flex;
         flex-direction:row;
-        justify-content: left;
         margin: 0 0 25px 0;
+        justify-content: space-around;
     }
 
     .productCarouselTitle {
@@ -247,9 +254,11 @@
             width:{{button_width}}%;
             height:{{button_height}}px;
             border-radius:{{button_border_radius}}px;
-            margin: 25px 25px;
+            font-size: {{button_font_size}}px;
+            font-weight: {{button_font_weight}};
             color:white;
             align-content:center;
+            margin: 10px 1.5%;
 
             &:hover {
                 cursor: pointer;
@@ -257,6 +266,35 @@
                 animation-duration: .5s;
                 animation-fill-mode: forwards;
             }
+        }
+
+        @media screen and (max-width: 800px) {
+            .carouselTabButton {
+                width: auto;
+                padding: 0 10px;
+
+                &:nth-of-type(1) {
+                    width: 100%;
+                }
+            }
+
+            .productCarouselNavbar {
+                flex-wrap: wrap;
+            }
+        }
+
+        .productCarouselNavbar {
+            justify-content: {{button_alignment.horizontal}};
+        }
+    }
+
+    [data-widget-id="{{_.id}}"] {
+        .productCarouselTitle {
+            margin: {{title_margins.top.value}}{{title_margins.top.type}} {{title_margins.right.value}}{{title_margins.right.type}} {{title_margins.bottom.value}}{{title_margins.bottom.type}} {{title_margins.left.value}}{{title_margins.left.type}};
+        }
+
+        .productCarouselSubheader {
+            margin: {{subtitle_margins.top.value}}{{subtitle_margins.top.type}} {{subtitle_margins.right.value}}{{subtitle_margins.right.type}} {{subtitle_margins.bottom.value}}{{subtitle_margins.bottom.type}} {{subtitle_margins.left.value}}{{subtitle_margins.left.type}};
         }
     }
 
