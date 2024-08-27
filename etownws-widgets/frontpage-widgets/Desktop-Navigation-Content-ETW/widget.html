@@ -1,4 +1,5 @@
 <script>
+
     if(!navBarButtonListener)
     var navBarButtonListener = (e) => {
         document.querySelectorAll(".navSectionContent-container.open").forEach((element) => {
@@ -23,8 +24,10 @@
             document.body.append(styleEle);
         }
     });
+
     document.querySelector(".navBarButton[data-nav-button-section='{{nav_section_name}}']").addEventListener("mouseover", navBarButtonListener);
     document.querySelector("[data-content-region='nav_bar--global']").addEventListener("mouseleave", closeNavBar);
+
 </script>
 <style>
 
@@ -72,7 +75,14 @@
             }
 
             &.closed {
+                {{#if devMode}}
+                display: flex;
+                animation: .5s navSectionContent-fadeIn;
+                {{else}}
                 display: none;
+                {{/if}}
+                
+                
             }
 
             a {
@@ -132,16 +142,23 @@
         }
 
         .navSectionContent-featuredProduct {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
             order:5;
-
-            width: {{nav_section_featured_img_width}}px;
-            height: {{nav_section_featured_img_height}}px;
+            gap:0.5em;
+            align-items: center;
             margin: {{nav_section_featured_img_margins.top.value}}{{nav_section_featured_img_margins.top.type}} {{nav_section_featured_img_margins.right.value}}{{nav_section_featured_img_margins.right.type}} {{nav_section_featured_img_margins.bottom.value}}{{nav_section_featured_img_margins.bottom.type}} {{nav_section_featured_img_margins.left.value}}{{nav_section_featured_img_margins.left.type}};
             overflow: hidden;
             align-content:center;
-
+        }
+        .navSectionContent-featuredProduct a{
+            width: {{nav_section_featured_img_width}}px;
+            height: {{nav_section_featured_img_height}}px;
         }
     }
+
+    
 
     [data-widget-id="{{_.id}}"] {
         position:absolute;
@@ -177,12 +194,27 @@
                     <a {{#if brand_image_url}}href="{{brand_image_url}}"{{/if}}><img src="{{brand_image.src}}"></a>
                 </div>
             {{/if}}
-            {{#if featured_product_image.src}}
-                <div class="navSectionContent-featuredProduct">
-                    <a {{#if featured_product_image_url}}href="{{featured_product_image_url}}"{{/if}}><img src="{{featured_product_image.src}}"></a>
-                </div>
-            {{/if}}
         {{/each}}
+        <div class="navSectionContent-featuredProduct">
+            {{#if show_featured_image_1}}
+                <a {{#if featured_product_image_url_1}}href="{{featured_product_image_url_1}}"{{/if}}><img src="{{featured_product_image_1.src}}"></a>
+            {{/if}}
+            {{#if show_featured_image_2}}
+                <a {{#if featured_product_image_url_2}}href="{{featured_product_image_url_2}}"{{/if}}><img src="{{featured_product_image_2.src}}"></a>
+            {{/if}}
+            {{#if show_featured_image_3}}
+                <a {{#if featured_product_image_url_3}}href="{{featured_product_image_url_3}}"{{/if}}><img src="{{featured_product_image_3.src}}"></a>
+            {{/if}}
+            {{#if show_featured_image_4}}
+                <a {{#if featured_product_image_url_4}}href="{{featured_product_image_url_4}}"{{/if}}><img src="{{featured_product_image_4.src}}"></a>
+            {{/if}}
+            {{#if show_featured_image_5}}
+                <a {{#if featured_product_image_url_5}}href="{{featured_product_image_url_5}}"{{/if}}><img src="{{featured_product_image_5.src}}"></a>
+            {{/if}}
+            {{#if show_featured_image_6}}
+                <a {{#if featured_product_image_url_6}}href="{{featured_product_image_url_6}}"{{/if}}><img src="{{featured_product_image_6.src}}"></a>
+            {{/if}}
+        </div>
     </div>
 </div>
 
