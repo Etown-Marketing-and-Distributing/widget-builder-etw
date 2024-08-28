@@ -82,12 +82,12 @@
         "label": "Design",
         "sections": [
           {
-            "label": "Featured Image",
+            "label":"Brand Image",
             "settings": [
               {
                 "type": "imageManager",
-                "id": "featured_product_image",
-                "label": "Featured Product Image",
+                "id": "brand_image",
+                "label": "Brand Image",
                 "default": {
                   "src": "",
                   "type": "IMAGE_MANAGER"
@@ -95,8 +95,8 @@
               },
               {
                 "type": "input",
-                "id": "featured_product_image_url",
-                "label": "Featured Image URL"
+                "id": "brand_image_url",
+                "label": "Brand Image URL"
               }
             ]
           }
@@ -287,12 +287,14 @@
           {
             "type": "input",
             "id": "nav_section_featured_img_width",
-            "label": "Featured Image Width (px)"
+            "label": "Featured Image Max Width (px)",
+            "default": "500"
           },
           {
             "type": "input",
             "id": "nav_section_featured_img_height",
-            "label": "Featured Image Height (px)"
+            "label": "Featured Image Max Height (px)",
+            "default": "500"
           },
           {
             "type": "boxModel",

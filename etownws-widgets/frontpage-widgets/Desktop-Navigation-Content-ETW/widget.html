@@ -90,7 +90,7 @@
             }
 
             .navSectionContentWrapper {
-                width: 80%;
+                width: 100%;
                 justify-content: space-around;
                 display:inherit;
                 flex-wrap: wrap;
@@ -143,7 +143,8 @@
 
         .navSectionContent-featuredProduct {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            text-align: center;
             width: 100%;
             order:5;
             gap:0.5em;
@@ -153,8 +154,14 @@
             align-content:center;
         }
         .navSectionContent-featuredProduct a{
-            width: {{nav_section_featured_img_width}}px;
-            height: {{nav_section_featured_img_height}}px;
+            max-width: {{nav_section_featured_img_width}}px;
+            max-height: {{nav_section_featured_img_height}}px;
+            height:100%;
+            flex:1;
+        }
+        .navSectionContent-featuredProduct a img{
+            width: 100%;
+            height: 100%;
         }
     }
 
