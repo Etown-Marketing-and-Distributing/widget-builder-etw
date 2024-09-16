@@ -11,7 +11,7 @@
         "label": "Design",
         "sections": [
           {
-            "label":"Categories",
+            "label": "Categories",
             "settings": [
               {
                 "type": "input",
@@ -101,31 +101,6 @@
             ]
           }
         ]
-      },
-      {
-        "type": "tab",
-        "label": "Design",
-        "sections": [
-          {
-            "label":"Featured Image",
-            "settings": [
-              {
-                "type": "imageManager",
-                "id": "featured_product_image",
-                "label": "Featured Product Image",
-                "default": {
-                  "src": "",
-                  "type": "IMAGE_MANAGER"
-                }
-              },
-              {
-                "type": "input",
-                "id": "featured_product_image_url",
-                "label": "Featured Image URL"
-              }
-            ]
-          }
-        ]
       }
     ]
   },
@@ -134,7 +109,7 @@
     "label": "Category Links",
     "sections": [
       {
-        "label":"Category Settings",
+        "label": "Category Settings",
         "settings": [
           {
             "type": "input",
@@ -176,22 +151,22 @@
             "label": "Category Group Margins (px)",
             "id": "nav_section_categories_margins",
             "default": {
-                "top": {
-                    "value": "0",
-                    "type": "px"
-                },
-                "right": {
-                    "value": "0",
-                    "type": "px"
-                },
-                "bottom": {
-                    "value": "0",
-                    "type": "px"
-                },
-                "left": {
-                    "value": "0",
-                    "type": "px"
-                }
+              "top": {
+                "value": "0",
+                "type": "px"
+              },
+              "right": {
+                "value": "0",
+                "type": "px"
+              },
+              "bottom": {
+                "value": "0",
+                "type": "px"
+              },
+              "left": {
+                "value": "0",
+                "type": "px"
+              }
             }
           }
         ]
@@ -203,7 +178,7 @@
     "label": "Brand Images",
     "sections": [
       {
-        "label":"Brand Image Settings",
+        "label": "Brand Image Settings",
         "settings": [
           {
             "type": "input",
@@ -225,71 +200,22 @@
             "label": "Brand Image Margins (px)",
             "id": "nav_section_brand_img_margins",
             "default": {
-                "top": {
-                    "value": "0",
-                    "type": "px"
-                },
-                "right": {
-                    "value": "0",
-                    "type": "px"
-                },
-                "bottom": {
-                    "value": "0",
-                    "type": "px"
-                },
-                "left": {
-                    "value": "0",
-                    "type": "px"
-                }
-            }
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "tab",
-    "label": "Featured Images",
-    "sections": [
-      {
-        "label":"Featured Image Settings",
-        "settings": [
-          {
-            "type": "input",
-            "id": "nav_section_featured_count",
-            "label": "Number of featured product images"
-          },
-          {
-            "type": "input",
-            "id": "nav_section_featured_img_width",
-            "label": "Featured Image Width (px)"
-          },
-          {
-            "type": "input",
-            "id": "nav_section_featured_img_height",
-            "label": "Featured Image Height (px)"
-          },
-          {
-            "type": "boxModel",
-            "label": "Featured Image Margins (px)",
-            "id": "nav_section_featured_img_margins",
-            "default": {
-                "top": {
-                    "value": "0",
-                    "type": "px"
-                },
-                "right": {
-                    "value": "0",
-                    "type": "px"
-                },
-                "bottom": {
-                    "value": "0",
-                    "type": "px"
-                },
-                "left": {
-                    "value": "0",
-                    "type": "px"
-                }
+              "top": {
+                "value": "0",
+                "type": "px"
+              },
+              "right": {
+                "value": "0",
+                "type": "px"
+              },
+              "bottom": {
+                "value": "0",
+                "type": "px"
+              },
+              "left": {
+                "value": "0",
+                "type": "px"
+              }
             }
           }
         ]
@@ -301,7 +227,7 @@
     "label": "Section Design",
     "sections": [
       {
-        "label":"Container Settings",
+        "label": "Container Settings",
         "settings": [
           {
             "type": "input",
@@ -323,23 +249,190 @@
             "label": "Padding (px)",
             "id": "nav_section_padding",
             "default": {
-                "top": {
-                    "value": "0",
-                    "type": "px"
-                },
-                "right": {
-                    "value": "0",
-                    "type": "px"
-                },
-                "bottom": {
-                    "value": "20",
-                    "type": "px"
-                },
-                "left": {
-                    "value": "0",
-                    "type": "px"
-                }
+              "top": {
+                "value": "0",
+                "type": "px"
+              },
+              "right": {
+                "value": "0",
+                "type": "px"
+              },
+              "bottom": {
+                "value": "20",
+                "type": "px"
+              },
+              "left": {
+                "value": "0",
+                "type": "px"
+              }
             }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "tab",
+    "label": "Featured Images",
+    "sections": [
+      {
+        "label": "Featured Image Settings",
+        "settings": [
+          {
+            "type":"boolean",
+            "label":"Developer Mode",
+            "id":"devMode",
+            "default":false
+          },
+          {
+            "type": "input",
+            "id": "nav_section_featured_img_width",
+            "label": "Featured Image Max Width (px)",
+            "default": "500"
+          },
+          {
+            "type": "input",
+            "id": "nav_section_featured_img_height",
+            "label": "Featured Image Max Height (px)",
+            "default": "500"
+          },
+          {
+            "type": "boxModel",
+            "label": "Featured Image Margins (px)",
+            "id": "nav_section_featured_img_margins",
+            "default": {
+              "top": {
+                "value": "0",
+                "type": "px"
+              },
+              "right": {
+                "value": "0",
+                "type": "px"
+              },
+              "bottom": {
+                "value": "0",
+                "type": "px"
+              },
+              "left": {
+                "value": "0",
+                "type": "px"
+              }
+            }
+          },
+          {
+            "type": "imageManager",
+            "id": "featured_product_image_1",
+            "label": "Featured Product Image 1",
+            "default": {
+              "src": "",
+              "type": "IMAGE_MANAGER"
+            }
+          },
+          {
+            "type":"boolean",
+            "label":"Show Featured Image 1",
+            "id":"show_featured_image_1"
+          },
+          {
+            "type": "input",
+            "id": "featured_product_image_url_1",
+            "label": "Featured Image URL"
+          },
+
+          {
+            "type": "imageManager",
+            "id": "featured_product_image_2",
+            "label": "Featured Product Image 2",
+            "default": {
+              "src": "",
+              "type": "IMAGE_MANAGER"
+            }
+          },
+          {
+            "type": "boolean",
+            "label": "Show Featured Image 2",
+            "id": "show_featured_image_2"
+          },
+          {
+            "type": "input",
+            "id": "featured_product_image_url_2",
+            "label": "Featured Image URL"
+          },
+          {
+            "type": "imageManager",
+            "id": "featured_product_image_3",
+            "label": "Featured Product Image 3",
+            "default": {
+              "src": "",
+              "type": "IMAGE_MANAGER"
+            }
+          },
+          {
+            "type":"boolean",
+            "label":"Show Featured Image 3",
+            "id":"show_featured_image_3"
+          },
+          {
+            "type": "input",
+            "id": "featured_product_image_url_3",
+            "label": "Featured Image URL"
+          },
+          {
+            "type": "imageManager",
+            "id": "featured_product_image_4",
+            "label": "Featured Product Image 4",
+            "default": {
+              "src": "",
+              "type": "IMAGE_MANAGER"
+            }
+          },
+          {
+            "type":"boolean",
+            "label":"Show Featured Image 4",
+            "id":"show_featured_image_4"
+          },
+          {
+            "type": "input",
+            "id": "featured_product_image_url_4",
+            "label": "Featured Image URL"
+          },
+          {
+            "type": "imageManager",
+            "id": "featured_product_image_5",
+            "label": "Featured Product Image 5",
+            "default": {
+              "src": "",
+              "type": "IMAGE_MANAGER"
+            }
+          },
+          {
+            "type":"boolean",
+            "label":"Show Featured Image 5",
+            "id":"show_featured_image_5"
+          },
+          {
+            "type": "input",
+            "id": "featured_product_image_url_5",
+            "label": "Featured Image URL"
+          },
+          {
+            "type": "imageManager",
+            "id": "featured_product_image_6",
+            "label": "Featured Product Image 6",
+            "default": {
+              "src": "",
+              "type": "IMAGE_MANAGER"
+            }
+          },
+          {
+            "type":"boolean",
+            "label":"Show Featured Image 6",
+            "id":"show_featured_image_6"
+          },
+          {
+            "type": "input",
+            "id": "featured_product_image_url_6",
+            "label": "Featured Image URL"
           }
         ]
       }
