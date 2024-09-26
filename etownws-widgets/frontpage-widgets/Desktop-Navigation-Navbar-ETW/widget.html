@@ -10,6 +10,27 @@
     });
 </script>
 <style>
+
+    @keyframes navSectionContent-fadeIn {
+        0% {
+            transform: translateY({{nav_bar_tab_animation_distance}}vh);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    [data-content-region="nav_bar--global"] {
+           
+        .navSectionContent-container {
+            &.open {
+                animation: .5s navSectionContent-fadeIn;
+            }
+        }
+
+    }
+
     .navPages-container#menu {
         @media screen and (min-width: 801px) {
             display: none !important;

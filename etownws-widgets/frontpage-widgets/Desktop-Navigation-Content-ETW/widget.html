@@ -31,16 +31,6 @@
 </script>
 <style>
 
-    @keyframes navSectionContent-fadeIn {
-        0% {
-            transform: translateY(100vh);
-        }
-
-        100% {
-            transform: translateY(0);
-        }
-    }
-
     [data-content-region="nav_bar--global"] {
             [data-sub-layout-container] {
                 z-index: auto !important;
@@ -71,7 +61,6 @@
 
             &.open {
                 display: flex;
-                animation: .5s navSectionContent-fadeIn;
             }
 
             &.closed {
