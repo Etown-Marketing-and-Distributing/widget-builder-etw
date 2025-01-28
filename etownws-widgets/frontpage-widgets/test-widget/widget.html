@@ -1,0 +1,59 @@
+
+<style>
+       .card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .card-avatar img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .card-content p {
+            color: #666;
+        }
+    </style>
+
+<script>
+    const card = document.getElementById('card');
+
+    card.addEventListener('click', () => {
+        card.style.transition = 'transform 1s';
+        card.style.transform += ' rotate(360deg)';
+        setTimeout(() => {
+            card.style.transition = '';
+            card.style.transform = card.style.transform.replace(' rotate(360deg)', '');
+        }, {{spinSpeed.value}});
+    });
+</script>
+
+
+
+
+    <div class="card" id="card">
+        <div class="card-avatar">
+            <img src="https://tse4.mm.bing.net/th?id=OIG2.pw.oPEJvFAoSA86SoSPT&pid=ImgGn" alt="3D Dog Avatar">
+        </div>
+        <div class="card-content">
+            <p>This is your happy pet dog</p>
+            <h3>{{DogName}}</h3>
+        </div>
+    </div>
+
+    

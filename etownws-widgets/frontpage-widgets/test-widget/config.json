@@ -1,0 +1,7 @@
+{
+  "DogName": "Rebel",
+  "spinSpeed": {
+    "value": 1000,
+    "type": "ms"
+  }
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "type": "tab",
+    "label": "Design",
+    "sections": [
+      {
+        "label": "Settings",
+        "settings": [
+          {
+            "type": "input",
+            "id": "DogName",
+            "label": "Dog's Name",
+            "default": "Rebel"
+          },
+         
+          {
+            "type": "number",
+            "id": "spinSpeed",
+            "label": "Spin Speed",
+            "default": {
+              "value": 1000,
+              "type": "ms"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
